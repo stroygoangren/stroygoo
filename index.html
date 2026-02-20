@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>StroyGo — Все строительные материалы в Ангрене</title>
+
+    <!-- SEO мета-теги -->
+    <meta name="description" content="StroyGo — интернет-магазин строительных материалов в Ангрене. Более 1000 товаров: краски, инструменты, клеи, герметики, скотч. Доставка за 24 часа. Звоните: +998 (94) 097-20-95">
+    <meta name="keywords" content="стройматериалы Ангрен, краски Ангрен, инструменты Ангрен, строительный магазин Ангрен, StroyGo, стройка Узбекистан">
+    <meta name="author" content="StroyGo">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (для Telegram, WhatsApp, соцсетей) -->
+    <meta property="og:title" content="StroyGo — Строительные материалы в Ангрене">
+    <meta property="og:description" content="Более 1000 товаров. Краски, инструменты, клеи, герметики. Доставка за 24 часа по Ангрену.">
+    <meta property="og:image" content="https://i.ibb.co/Qj6Rh5qs/photo-2026-02-08-17-34-44.jpg">
+    <meta property="og:url" content="https://stroygoangren.github.io/stroygoo/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_UZ">
+
+    <!-- Telegram / мобильные -->
+    <meta name="theme-color" content="#6b21a5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="StroyGo">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Favicon (SVG, работает в любом браузере) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236b21a5'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='Arial' fill='white'>🏗</text></svg>">
+
     <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts: Inter -->
@@ -419,6 +444,9 @@
             box-shadow: 0 8px 15px rgba(249,115,22,0.4);
         }
         
+        .btn-add {
+            transition: background 0.3s ease, transform 0.15s ease;
+        }
         .btn-add:active { 
             transform: translateY(0);
             opacity: 0.9;
@@ -641,6 +669,7 @@
         /* Форма заказа */
         .order-form input, .order-form textarea {
             width: 100%;
+            box-sizing: border-box;
             padding: 14px 18px;
             margin-bottom: 12px;
             border: none;
@@ -1289,6 +1318,115 @@
             margin-bottom: 10px;
             background: white;
         }
+
+
+        /* ========== УСЛУГИ ========== */
+        .services-section {
+            margin: 16px 0 8px;
+        }
+        .services-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 18px;
+            padding: 16px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: 1.5px solid #f0f4f9;
+            box-shadow: 0 4px 12px -4px rgba(107,33,165,0.1);
+            transition: all 0.25s;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px -6px rgba(107,33,165,0.2);
+            border-color: #6b21a5;
+        }
+        .service-card:active { transform: scale(0.97); }
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .service-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.3;
+        }
+        .service-badge {
+            font-size: 10px;
+            background: #f97316;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* ========== АДАПТИВНОСТЬ ДЛЯ УЗКИХ ЭКРАНОВ ========== */
+        @media (max-width: 360px) {
+            /* Шапка */
+            .logo-text { font-size: 18px; }
+            .logo-image { width: 38px; height: 38px; }
+            .header { padding: 12px 14px 14px; }
+
+            /* Карточки товаров — одна колонка на очень узких */
+            .product-grid { grid-template-columns: 1fr; gap: 10px; }
+
+            /* Кнопки категорий */
+            .quick-cat-item { font-size: 11px; padding: 6px 10px; }
+
+            /* Карточка товара */
+            .product-card { padding: 12px 8px; }
+            .product-name { font-size: 13px; }
+            .product-price { font-size: 15px; }
+            .btn-add { font-size: 12px; padding: 8px 6px; }
+
+            /* Корзина */
+            .cart-item { flex-direction: column; gap: 8px; }
+            .cart-item-actions { width: 100%; justify-content: space-between; }
+
+            /* Форма заказа */
+            .order-form input, .order-form textarea { font-size: 14px; }
+
+            /* Нижняя навигация */
+            .nav-label { font-size: 9px; }
+            .nav-item { padding: 6px 4px; }
+
+            /* Модальные окна */
+            .modal-content { margin: 10px; padding: 20px 14px; }
+        }
+
+        @media (max-width: 400px) {
+            /* Сетка товаров чуть компактнее */
+            .product-grid { gap: 10px; }
+            .product-card { padding: 12px 8px; }
+
+            /* Кнопки фильтра — мельче */
+            .quick-cat-item { font-size: 12px; padding: 6px 12px; }
+
+            /* Заголовок категории */
+            .category-title { font-size: 14px; }
+
+            /* Итог в корзине */
+            .cart-summary { padding: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -1319,18 +1457,46 @@
             <div class="search-section">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Поиск товаров..." onkeyup="searchProducts()">
+                    <input type="text" id="searchInput" placeholder="Поиск товаров..." oninput="searchProducts(); toggleClearBtn()">
+                    <i class="fas fa-times" id="searchClearBtn" onclick="clearSearch()" style="display:none; cursor:pointer; color:#aaa; padding: 0 4px;"></i>
                 </div>
             </div>
             
             <!-- Быстрые категории -->
-            <div class="quick-categories">
-                <div class="quick-cat-item active" onclick="filterCategory('all')">Все</div>
-                <div class="quick-cat-item" onclick="filterCategory('kraski')">Краски</div>
-                <div class="quick-cat-item" onclick="filterCategory('instrumenty')">Инструменты</div>
-                <div class="quick-cat-item" onclick="filterCategory('skotch')">Скотчи</div>
-                <div class="quick-cat-item" onclick="filterCategory('klei')">Клеи</div>
-                <div class="quick-cat-item" onclick="filterCategory('gruntovki')">Грунтовки</div>
+            <!-- Услуги -->
+            <div class="services-section">
+                <div class="services-title">🛠 Услуги</div>
+                <div class="services-grid">
+                    <div class="service-card" onclick="showServiceAlert('trash')">
+                        <div class="service-icon" style="background:#FFF3E0;">🗑️</div>
+                        <div class="service-name">Вывоз мусора</div>
+                        <span class="service-badge">Скоро</span>
+                    </div>
+                    <div class="service-card" onclick="showServiceAlert('master')">
+                        <div class="service-icon" style="background:#E8F5E9;">👷</div>
+                        <div class="service-name">Мастера</div>
+                        <span class="service-badge">Скоро</span>
+                    </div>
+                    <div class="service-card" onclick="showServiceAlert('rental')">
+                        <div class="service-icon" style="background:#E3F2FD;">🔧</div>
+                        <div class="service-name">Аренда инструментов</div>
+                        <span class="service-badge">Скоро</span>
+                    </div>
+                    <div class="service-card" onclick="showServiceAlert('tech')">
+                        <div class="service-icon" style="background:#F3E5F5;">⚙️</div>
+                        <div class="service-name">Техника</div>
+                        <span class="service-badge">Скоро</span>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="quick-categories">
+                <div class="quick-cat-item active" onclick="filterCategory('all', this)">Все</div>
+                <div class="quick-cat-item" onclick="filterCategory('kraski', this)">Краски</div>
+                <div class="quick-cat-item" onclick="filterCategory('instrumenty', this)">Инструменты</div>
+                <div class="quick-cat-item" onclick="filterCategory('skotch', this)">Скотчи</div>
+                <div class="quick-cat-item" onclick="filterCategory('klei', this)">Клеи</div>
+                <div class="quick-cat-item" onclick="filterCategory('gruntovki', this)">Грунтовки</div>
             </div>
             
             <!-- Категория: Инструменты и аксессуары -->
@@ -1355,7 +1521,7 @@
                             <div class="price-row">
                                 <span class="new-price">15 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(101)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(101, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Малярный нож -->
@@ -1370,7 +1536,7 @@
                             <div class="price-row">
                                 <span class="new-price">8 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(102)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(102, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Шпатель пластиковый обойный -->
@@ -1385,7 +1551,7 @@
                             <div class="price-row">
                                 <span class="new-price">5 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(105)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(105, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Лоток для краски -->
@@ -1400,7 +1566,7 @@
                             <div class="price-row">
                                 <span class="new-price">15 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(106)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(106, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Кисть деревянная 1 -->
@@ -1415,7 +1581,7 @@
                             <div class="price-row">
                                 <span class="new-price">4 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(110)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(110, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Валик 38мм Стяжка 20см -->
@@ -1430,7 +1596,7 @@
                             <div class="price-row">
                                 <span class="new-price">12 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(111)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(111, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Валик 22мм Мех -->
@@ -1445,7 +1611,7 @@
                             <div class="price-row">
                                 <span class="new-price">10 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(112)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(112, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Валик 55мм Коробка -->
@@ -1460,7 +1626,7 @@
                             <div class="price-row">
                                 <span class="new-price">14 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(113)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(113, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Валик 22мм Коробка (Делюкс) -->
@@ -1475,7 +1641,7 @@
                             <div class="price-row">
                                 <span class="new-price">13 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(114)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(114, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                     </div>
                 </div>
@@ -1503,7 +1669,7 @@
                             <div class="price-row">
                                 <span class="new-price">2 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(103)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(103, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Комплект зажимов и клинья (СВП) -->
@@ -1518,7 +1684,7 @@
                             <div class="price-row">
                                 <span class="new-price">15 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(104)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(104, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Дюбель гвозди -->
@@ -1533,7 +1699,7 @@
                             <div class="price-row">
                                 <span class="new-price">500</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(107)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(107, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Внутренние вентиляционные решетки -->
@@ -1548,7 +1714,7 @@
                             <div class="price-row">
                                 <span class="new-price">8 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(108)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(108, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Пластмассовые изделия -->
@@ -1563,7 +1729,7 @@
                             <div class="price-row">
                                 <span class="new-price">3 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(109)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(109, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Угол из ПВХ -->
@@ -1578,7 +1744,7 @@
                             <div class="price-row">
                                 <span class="new-price">5 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(119)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(119, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                     </div>
                 </div>
@@ -1606,7 +1772,7 @@
                             <div class="price-row">
                                 <span class="new-price">4 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(120)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(120, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Стык лента на бумажной основе -->
@@ -1621,7 +1787,7 @@
                             <div class="price-row">
                                 <span class="new-price">3 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(121)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(121, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Баннер скотч -->
@@ -1636,7 +1802,7 @@
                             <div class="price-row">
                                 <span class="new-price">7 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(122)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(122, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Изолента ПВХ -->
@@ -1651,7 +1817,7 @@
                             <div class="price-row">
                                 <span class="new-price">3 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(123)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(123, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Скотч канцелярский -->
@@ -1666,7 +1832,7 @@
                             <div class="price-row">
                                 <span class="new-price">2 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(124)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(124, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Лента WASHI -->
@@ -1681,7 +1847,7 @@
                             <div class="price-row">
                                 <span class="new-price">5 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(125)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(125, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Алюминиевая клейкая лента -->
@@ -1696,7 +1862,7 @@
                             <div class="price-row">
                                 <span class="new-price">8 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(126)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(126, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Автомобильная малярная лента -->
@@ -1711,7 +1877,7 @@
                             <div class="price-row">
                                 <span class="new-price">6 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(127)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(127, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Двусторонняя прозрачная лента М3 -->
@@ -1726,7 +1892,7 @@
                             <div class="price-row">
                                 <span class="new-price">7 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(128)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(128, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Лента липкая двусторонняя SACA -->
@@ -1741,7 +1907,7 @@
                             <div class="price-row">
                                 <span class="new-price">8 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(129)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(129, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Двусторонний скотч (универсальный) -->
@@ -1756,7 +1922,7 @@
                             <div class="price-row">
                                 <span class="new-price">5 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(130)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(130, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Укрывная пленка с малярным скотчем -->
@@ -1771,7 +1937,7 @@
                             <div class="price-row">
                                 <span class="new-price">12 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(131)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(131, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Малярный скотч -->
@@ -1786,7 +1952,7 @@
                             <div class="price-row">
                                 <span class="new-price">4 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(132)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(132, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Сигнальная лента -->
@@ -1801,7 +1967,7 @@
                             <div class="price-row">
                                 <span class="new-price">5 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(118)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(118, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                     </div>
                 </div>
@@ -1829,7 +1995,7 @@
                             <div class="price-row">
                                 <span class="new-price">22 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(133)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(133, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Жидкие гвозди -->
@@ -1844,7 +2010,7 @@
                             <div class="price-row">
                                 <span class="new-price">15 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(135)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(135, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Клей ПВА -->
@@ -1859,7 +2025,7 @@
                             <div class="price-row">
                                 <span class="new-price">8 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(141)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(141, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                     </div>
                 </div>
@@ -1887,7 +2053,7 @@
                             <div class="price-row">
                                 <span class="new-price">45 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(151)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(151, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Водные краски Oscar Deluxe -->
@@ -1902,7 +2068,7 @@
                             <div class="price-row">
                                 <span class="new-price">55 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(152)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(152, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Нитроцеллюлозная эмаль НЦ -->
@@ -1917,7 +2083,7 @@
                             <div class="price-row">
                                 <span class="new-price">35 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(153)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(153, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Антипас -->
@@ -1932,7 +2098,7 @@
                             <div class="price-row">
                                 <span class="new-price">28 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(154)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(154, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Аэрозольная краска Duafix -->
@@ -1947,7 +2113,7 @@
                             <div class="price-row">
                                 <span class="new-price">25 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(155)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(155, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Грунтовка -->
@@ -1962,7 +2128,7 @@
                             <div class="price-row">
                                 <span class="new-price">25 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(156)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(156, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Эмульсия -->
@@ -1977,7 +2143,7 @@
                             <div class="price-row">
                                 <span class="new-price">55 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(157)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(157, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Битумный лак -->
@@ -1992,7 +2158,7 @@
                             <div class="price-row">
                                 <span class="new-price">27 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(158)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(158, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Травертин лак -->
@@ -2007,7 +2173,7 @@
                             <div class="price-row">
                                 <span class="new-price">35 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(159)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(159, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Бетоноконтакт -->
@@ -2022,7 +2188,7 @@
                             <div class="price-row">
                                 <span class="new-price">42 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(160)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(160, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Лак (универсальный) -->
@@ -2037,7 +2203,7 @@
                             <div class="price-row">
                                 <span class="new-price">30 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(161)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(161, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                     </div>
                 </div>
@@ -2065,7 +2231,7 @@
                             <div class="price-row">
                                 <span class="new-price">15 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(162)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(162, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Разбавитель -->
@@ -2080,7 +2246,7 @@
                             <div class="price-row">
                                 <span class="new-price">12 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(163)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(163, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Антимороз -->
@@ -2095,7 +2261,7 @@
                             <div class="price-row">
                                 <span class="new-price">18 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(138)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(138, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Олифа -->
@@ -2110,7 +2276,7 @@
                             <div class="price-row">
                                 <span class="new-price">14 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(139)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(139, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Морилка -->
@@ -2125,7 +2291,7 @@
                             <div class="price-row">
                                 <span class="new-price">16 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(140)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(140, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                     </div>
                 </div>
@@ -2153,7 +2319,7 @@
                             <div class="price-row">
                                 <span class="new-price">18 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(136)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(136, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Фуга (затирка) -->
@@ -2168,7 +2334,7 @@
                             <div class="price-row">
                                 <span class="new-price">12 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(137)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(137, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Сода каустическая -->
@@ -2183,7 +2349,7 @@
                             <div class="price-row">
                                 <span class="new-price">10 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(142)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(142, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Гидроизоляция -->
@@ -2198,7 +2364,7 @@
                             <div class="price-row">
                                 <span class="new-price">22 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(143)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(143, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Жидкое стекло -->
@@ -2213,7 +2379,7 @@
                             <div class="price-row">
                                 <span class="new-price">18 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(144)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(144, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Монтажная пена -->
@@ -2228,7 +2394,7 @@
                             <div class="price-row">
                                 <span class="new-price">28 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(134)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(134, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                         
                         <!-- Стеклохолст -->
@@ -2243,7 +2409,7 @@
                             <div class="price-row">
                                 <span class="new-price">25 000</span>
                             </div>
-                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(117)"><i class="fas fa-cart-plus"></i> Добавить</button>
+                            <button class="btn-add" onclick="event.stopPropagation(); addToCart(117, false, this)"><i class="fas fa-cart-plus"></i> Добавить</button>
                         </div>
                     </div>
                 </div>
@@ -2285,8 +2451,8 @@
             </div>
             <h2 style="margin-bottom: 20px; color: #6b21a5;">📝 Оформление заказа</h2>
             <div class="order-form">
-                <input type="text" id="customerName" placeholder="Ваше имя" value="Покупатель">
-                <input type="tel" id="customerPhone" placeholder="Телефон" value="+998">
+                <input type="text" id="customerName" placeholder="Ваше имя">
+                <input type="tel" id="customerPhone" placeholder="+998 XX XXX-XX-XX">
                 <input type="text" id="customerAddress" placeholder="Адрес доставки (ориентир)">
                 <textarea id="customerComment" placeholder="Комментарий к заказу (необязательно)"></textarea>
                 
@@ -2316,7 +2482,7 @@
                 <h3 style="margin-bottom: 20px;">Центр (Навои)</h3>
                 <p><i class="fas fa-map-marker-alt" style="color:#6b21a5;"></i> ул. Навои, 15</p>
                 <p style="margin-top: 10px;"><i class="fas fa-clock" style="color:#6b21a5;"></i> Ежедневно: 8:00 - 20:00</p>
-                <p style="margin-top: 10px;"><i class="fas fa-phone" style="color:#6b21a5;"></i> +998 (90) 123-45-67</p>
+                <p style="margin-top: 10px;"><i class="fas fa-phone" style="color:#6b21a5;"></i> +998 (94) 097-20-95</p>
             </div>
         </div>
     </div>
@@ -2328,7 +2494,7 @@
             <div class="info-card">
                 <h3 style="margin-bottom: 20px;">Свяжитесь с нами</h3>
                 <ul class="contact-list">
-                    <li><i class="fas fa-phone-alt"></i> <strong>Телефон:</strong> +998 (90) 123-45-67</li>
+                    <li><i class="fas fa-phone-alt"></i> <strong>Телефон:</strong> +998 (94) 097-20-95</li>
                     <li><i class="fab fa-telegram"></i> <strong>Telegram:</strong> @StroyGObot</li>
                     <li><i class="fas fa-building"></i> <strong>Производитель:</strong> OSCAR, Узбекистан</li>
                 </ul>
@@ -2475,6 +2641,26 @@
     let orderHistory = [];
     let reviews = [];
     let currentRating = 0;
+
+    // Сохранение корзины в localStorage
+    function saveCart() {
+        localStorage.setItem('stroygo_cart', JSON.stringify(cart));
+    }
+
+    // Загрузка корзины из localStorage
+    function loadCart() {
+        const saved = localStorage.getItem('stroygo_cart');
+        if (saved) {
+            try {
+                cart = JSON.parse(saved);
+            } catch (e) {
+                cart = [];
+            }
+        } else {
+            cart = [];
+        }
+        updateCartUI();
+    }
 
     // Загрузка избранного из localStorage
     function loadFavorites() {
@@ -2689,8 +2875,11 @@
                         <span class="history-status">${order.status || 'Выполнен'}</span>
                     </div>
                     <div class="history-summary">
-                        <span>${order.items.length} товаров</span>
+                        <span>${order.items.length} ${order.items.length === 1 ? 'товар' : order.items.length < 5 ? 'товара' : 'товаров'}</span>
                         <span class="history-total">${order.total.toLocaleString()} сум</span>
+                    </div>
+                    <div style="text-align:center; font-size:11px; color:#94a3b8; margin-top:6px;">
+                        <i class="fas fa-chevron-down" id="chevron-${index}" style="transition:transform 0.3s;"></i> подробнее
                     </div>
                     <div class="history-details" id="history-details-${index}">
                         ${order.items.map(item => `
@@ -2719,8 +2908,10 @@
     // Раскрытие/скрытие деталей заказа
     function toggleHistoryDetails(index) {
         const details = document.getElementById(`history-details-${index}`);
+        const chevron = document.getElementById(`chevron-${index}`);
         if (details) {
-            details.classList.toggle('expanded');
+            const isOpen = details.classList.toggle('expanded');
+            if (chevron) chevron.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
         }
     }
 
@@ -2910,28 +3101,97 @@
     }
 
     // Поиск товаров
+    function showServiceAlert(type) {
+        const messages = {
+            trash: '🗑️ Вывоз мусора
+
+Услуга скоро будет доступна!
+По вопросам звоните: +998 (94) 097-20-95',
+            master: '👷 Мастера
+
+Услуга скоро будет доступна!
+По вопросам звоните: +998 (94) 097-20-95',
+            rental: '🔧 Аренда инструментов
+
+Услуга скоро будет доступна!
+По вопросам звоните: +998 (94) 097-20-95',
+            tech: '⚙️ Техника
+
+Услуга скоро будет доступна!
+По вопросам звоните: +998 (94) 097-20-95',
+        };
+        alert(messages[type] || 'Скоро доступно!');
+    }
+
+    function toggleClearBtn() {
+        const val = document.getElementById('searchInput').value;
+        document.getElementById('searchClearBtn').style.display = val ? 'inline' : 'none';
+    }
+
+    function clearSearch() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('searchClearBtn').style.display = 'none';
+        searchProducts();
+    }
+
     function searchProducts() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
+        const query = document.getElementById('searchInput').value.toLowerCase().trim();
         const products = document.querySelectorAll('.product-card');
-        
+        const categories = document.querySelectorAll('.category-section');
+
+        if (!query) {
+            // Сбрасываем — показываем всё как было
+            products.forEach(p => p.style.display = 'block');
+            categories.forEach(c => {
+                c.style.display = 'block';
+                const body = c.querySelector('.category-products');
+                if (body) body.classList.remove('expanded');
+            });
+            // Раскрываем первую категорию по умолчанию
+            const first = document.querySelector('.category-products');
+            if (first) first.classList.add('expanded');
+            // Сбрасываем активную кнопку фильтра на «Все»
+            document.querySelectorAll('.quick-cat-item').forEach(i => i.classList.remove('active'));
+            const allBtn = document.querySelector('.quick-cat-item');
+            if (allBtn) allBtn.classList.add('active');
+            return;
+        }
+
+        // При поиске снимаем активную категорию
+        document.querySelectorAll('.quick-cat-item').forEach(i => i.classList.remove('active'));
+
+        // При поиске раскрываем все категории
+        categories.forEach(c => {
+            c.style.display = 'block';
+            const body = c.querySelector('.category-products');
+            if (body) body.classList.add('expanded');
+        });
+
+        let anyVisible = false;
         products.forEach(product => {
-            const title = product.querySelector('h3').innerText.toLowerCase();
-            const desc = product.querySelector('.product-description').innerText.toLowerCase();
-            
+            const title = product.querySelector('h3') ? product.querySelector('h3').innerText.toLowerCase() : '';
+            const desc = product.querySelector('.product-description') ? product.querySelector('.product-description').innerText.toLowerCase() : '';
             if (title.includes(query) || desc.includes(query)) {
                 product.style.display = 'block';
+                anyVisible = true;
             } else {
                 product.style.display = 'none';
             }
         });
+
+        // Скрываем пустые категории
+        categories.forEach(c => {
+            const visible = Array.from(c.querySelectorAll('.product-card')).some(p => p.style.display !== 'none');
+            c.style.display = visible ? 'block' : 'none';
+        });
     }
 
     // Фильтрация по категориям
-    function filterCategory(category) {
+    function filterCategory(category, el) {
         document.querySelectorAll('.quick-cat-item').forEach(item => {
             item.classList.remove('active');
         });
-        event.target.classList.add('active');
+        if (el) el.classList.add('active');
         
         if (category === 'all') {
             document.querySelectorAll('.category-section').forEach(section => {
@@ -3099,6 +3359,8 @@
             page.classList.remove('active-page');
         });
         document.getElementById(pageId).classList.add('active-page');
+        // Обновляем историю при открытии
+        if (pageId === 'historyPage') updateHistoryUI();
     }
     
     function setActiveNav(index) {
@@ -3112,7 +3374,7 @@
     }
 
     // Добавление в корзину
-    function addToCart(productId, noAnimation = false) {
+    function addToCart(productId, noAnimation = false, btnEl = null) {
         const product = productCatalog[productId];
         if (!product) return;
         
@@ -3130,17 +3392,31 @@
         }
         
         updateCartUI();
+        saveCart();
         
         if (!noAnimation) {
-            // Анимация
-            const btn = event?.target;
-            if (btn && btn.classList.contains('btn-add')) {
+            // Находим кнопку надёжно
+            let btn = btnEl;
+            if (btn && !btn.classList.contains('btn-add')) {
+                btn = btn.closest('.btn-add');
+            }
+            if (!btn) btn = event?.target?.closest('.btn-add');
+
+            if (btn && !btn.dataset.animating) {
+                btn.dataset.animating = '1';
+                const inCart = cart.find(i => i.id === productId);
+                const count = inCart ? inCart.quantity : 1;
                 btn.style.background = 'linear-gradient(145deg, #10b981, #059669)';
-                btn.innerHTML = '<i class="fas fa-check"></i> Готово';
-                setTimeout(() => { 
-                    btn.style.background = 'linear-gradient(145deg, #f97316, #fb923c)'; 
-                    btn.innerHTML = '<i class="fas fa-cart-plus"></i> Добавить'; 
-                }, 600);
+                btn.style.transform = 'scale(0.95)';
+                btn.innerHTML = count > 1
+                    ? `<i class="fas fa-check"></i> В корзине: ${count}`
+                    : '<i class="fas fa-check"></i> Добавлено!';
+                setTimeout(() => {
+                    btn.style.background = 'linear-gradient(145deg, #f97316, #fb923c)';
+                    btn.style.transform = 'scale(1)';
+                    btn.innerHTML = '<i class="fas fa-cart-plus"></i> Добавить';
+                    delete btn.dataset.animating;
+                }, 900);
             }
         }
     }
@@ -3154,13 +3430,15 @@
                 removeFromCart(productId);
             } else {
                 updateCartUI();
+                saveCart();
             }
         }
     }
     
     function removeFromCart(productId) { 
         cart = cart.filter(item => item.id !== productId); 
-        updateCartUI(); 
+        updateCartUI();
+        saveCart();
     }
     
     function updateCartUI() {
@@ -3224,10 +3502,27 @@
     function sendOrderToTelegram() {
         if (cart.length === 0) { alert('Корзина пуста'); return; }
 
-        const name = document.getElementById('customerName').value.trim() || 'Покупатель';
-        const phone = document.getElementById('customerPhone').value.trim() || 'не указан';
-        const address = document.getElementById('customerAddress').value.trim() || 'не указан';
+        const name = document.getElementById('customerName').value.trim();
+        const phone = document.getElementById('customerPhone').value.trim();
+        const address = document.getElementById('customerAddress').value.trim();
         const comment = document.getElementById('customerComment').value.trim() || '—';
+
+        // Валидация обязательных полей
+        if (!name) {
+            alert('⚠️ Пожалуйста, введите ваше имя');
+            document.getElementById('customerName').focus();
+            return;
+        }
+        if (!phone || phone === '+998' || phone.length < 10) {
+            alert('⚠️ Пожалуйста, введите корректный номер телефона');
+            document.getElementById('customerPhone').focus();
+            return;
+        }
+        if (!address) {
+            alert('⚠️ Пожалуйста, укажите адрес доставки');
+            document.getElementById('customerAddress').focus();
+            return;
+        }
 
         const itemsList = cart.map(i => `• ${i.name} — ${i.quantity} шт × ${i.price.toLocaleString()} сум = ${(i.price * i.quantity).toLocaleString()} сум`).join('\n');
         const total = cart.reduce((s,i) => s + i.price * i.quantity, 0).toLocaleString();
@@ -3247,29 +3542,25 @@ ${itemsList}
         `.trim();
 
         async function sendToGroup() {
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-            const payload = {
-                chat_id: TELEGRAM_GROUP_ID,
-                text: message,
-                parse_mode: 'HTML'
-            };
             try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+                const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?` +
+                    `chat_id=${encodeURIComponent(TELEGRAM_GROUP_ID)}&text=${encodeURIComponent(message)}`;
+                const response = await fetch(url, { method: 'GET' });
                 const result = await response.json();
                 return result.ok;
             } catch (e) {
-                console.error('Ошибка:', e);
+                console.error('Ошибка отправки:', e);
                 return false;
             }
         }
 
-        alert('⏳ Отправка заказа...');
+        const btn = document.querySelector('#checkoutPage .btn-add');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
 
         sendToGroup().then(success => {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fab fa-telegram"></i> 📦 Подтвердить заказ';
             if (success) {
                 // Сохраняем заказ в историю
                 const order = {
@@ -3294,10 +3585,16 @@ ${itemsList}
                 document.getElementById('acceptOrderModal').style.display = 'flex';
                 cart = [];
                 updateCartUI();
+                saveCart();
+                // Очищаем форму
+                document.getElementById('customerName').value = '';
+                document.getElementById('customerPhone').value = '';
+                document.getElementById('customerAddress').value = '';
+                document.getElementById('customerComment').value = '';
                 showPage('homePage');
                 setActiveNav(0);
             } else {
-                alert('❌ Ошибка при отправке. Пожалуйста, попробуйте позже.');
+                alert('❌ Не удалось отправить заказ. Проверьте интернет-соединение и попробуйте ещё раз.\nИли позвоните нам: +998 (94) 097-20-95');
             }
         });
     }
@@ -3308,6 +3605,7 @@ ${itemsList}
 
     // Инициализация
     window.onload = function() { 
+        loadCart();
         loadFavorites();
         loadOrderHistory();
         loadReviews();
